@@ -1,6 +1,24 @@
 <script src="lib/framework7.min.js"> </script>
 <script src="js/my-app.js"> </script>
 <script>
+var url = "server/testDaemon.php";
+var dat = {
+	"id": localStorage.getItem("id")+"",
+}
+var succ = function(data) {
+	if (data == "upToDate") {
+		console.log(JSON.parse(localStorage.getItem("cache")));
+		console.log("cache")
+	}
+	else {
+		localStorage.setItem("cache",data)
+		data = JSON.parse(data);
+		localStorage.setItem("id",data.posts[0].id)
+		console.log(data);
+		console.log("download")
+	}
+}
 
+ajax(url,dat,succ);
 
 </script>
