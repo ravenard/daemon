@@ -1,4 +1,8 @@
 <?php
 $fp = fopen('object.json', 'w');
-fwrite($fp, json_encode("sdfsdf"));	
+$var1 = $argv[1];
+if ($var1 = "daemon"){
+	fwrite($fp, json_encode($var1 ));
+}
+	
 ?>

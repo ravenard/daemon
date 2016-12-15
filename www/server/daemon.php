@@ -1,9 +1,11 @@
 <?php
-set_time_limit (10);
+set_time_limit (0);
 $b = true;
-$gh = 0;
+$areDaemon = "daemon";
+while($b){
 	include('onOff.php');
-	exec("php testdDaemon.php ".$gh);
+	exec('php testDaemon.php  '.$areDaemon);
 	echo $result;
-
+	sleep(10);
+};
 ?>
